@@ -1,0 +1,51 @@
+# Codebook
+==========
+This file describes the structure and variables of the tidy dataset file created by `run_analysis.R`. The file was created on `r as.character(Sys.time())`
+
+## Variable list and composition
+--------------------------------
+* Variables with both XYZ components and mean()/std() components follow the naming pattern: "feature-mean()-X" (6 rows for each variable)
+* Variables with only mean()/std() components follow the naming pattern: "feature-mean()" (2 rows for each variable)
+* Variables with no other components has 1 row for each variable
+* A variable can only belong to a subject or an activity, one and only one of the two is set "NA"  
+
+|Variable name			|XYZ components |mean()/std() components |
+|:---------------------:|:-------------:|:----------------------:|
+|tBodyAcc				|YES    		|YES					 |
+|tGravityAcc       		|YES			|YES					 |
+|tBodyAccJerk      		|YES			|YES					 |
+|tBodyGyro         		|YES			|YES					 |
+|tBodyGyroJerk     		|YES			|YES					 |
+|fBodyAcc          		|YES			|YES					 |
+|fBodyAccJerk      		|YES			|YES					 |
+|fBodyGyro         		|YES			|YES					 |
+|tBodyAccMag 			|YES			|YES					 |
+|tGravityAccMag 		|YES			|YES					 |
+|tBodyAccJerkMag 		|YES			|YES					 |
+|tBodyGyroMag 			|YES			|YES					 |
+|tBodyGyroJerkMag 		|YES			|YES					 |
+|fBodyAccMag 			|NO				|YES					 |
+|fBodyBodyAccJerkMag 	|NO				|YES					 |
+|fBodyBodyGyroMag 		|NO 			|YES					 |
+|fBodyBodyGyroJerkMag 	|NO 			|YES					 |
+|subject                |NO 			|NO 					 |
+|activity               |NO 			|NO 					 |
+
+
+## Dataset Structure
+---------------------
+```{r}
+str(dataset)
+```
+
+## Summary of variables
+---------------------
+```{r}
+summary(dataset)
+```
+
+## Write file to disk
+---------------------
+```{r}
+write.table(dataset,"DataHumanActivityRecognition.txt",quote=FALSE, row.names=FALSE,sep="\t")
+```
